@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: bbq-api-60
+  name: bbq-api-60
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bbq-api-60
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: bbq-api-60
+    spec:
+      containers:
+      - image: ghcr.io/massimocrippa/bbq-api:latest
+        name: bbq-api-60
+        resources:
+          limits:
+            cpu: 150m
+            memory: 200Mi
+          requests:
+            cpu: 50m
+            memory: 100Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bbq-api-60
+  labels:
+    app: bbq-api-60
+spec:
+  ports:
+  - port: 9999
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: bbq-api-60
+  type: LoadBalancer
