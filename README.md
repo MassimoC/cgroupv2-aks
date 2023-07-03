@@ -31,6 +31,11 @@ for i in {1..20};do curl -s -o /dev/null -w "HTTP %{http_code}" http://pinfo1.20
 
 # Prepare revert cgroup
 
+Overview
+
+![](imgs/cgroup_revert.jpg)
+
+
 Add a new node pool
 ```
 cd ./infra
