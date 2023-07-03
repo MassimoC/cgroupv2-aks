@@ -8,16 +8,16 @@ cd ./infra
 sh ./00-infra.sh
 ```
 
-Deploy sample app
+Deploy the sample app
 
 ```
 cd ./infra
 sh ./01-app.sh
 ```
 
-# test tha workload
+# Test the workload
 
-test the app is working : frontend: http://pinfo1.20.103.50.248.nip.io/
+Test the app is working : frontend: http://pinfo1.20.103.50.248.nip.io/
 
 ```
 # backend
@@ -29,7 +29,7 @@ curl -iv http://pinfo1.20.103.50.248.nip.io/env
 for i in {1..20};do curl -s -o /dev/null -w "HTTP %{http_code}" http://pinfo1.20.103.50.248.nip.io/version; echo; done
 ```
 
-# prepare revert cgroup
+# Prepare revert cgroup
 
 Add a new node pool
 ```
@@ -39,7 +39,7 @@ sh ./02-newpool.sh
 
 ![](imgs/newpool.jpg)
 
-# revert
+# Revert procedure
 
 CORDON
 
